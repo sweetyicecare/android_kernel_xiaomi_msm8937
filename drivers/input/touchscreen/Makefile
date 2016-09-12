@@ -95,3 +95,4 @@ obj-$(CONFIG_TOUCHSCREEN_HIMAX_CHIPSET)	+= hxchipset/
 obj-$(CONFIG_TOUCHSCREEN_FTS)		+= focaltech_touch/
 obj-$(CONFIG_TOUCHSCREEN_FT5336)	+= FT5336/
 obj-$(CONFIG_TOUCHSCREEN_IST30XX)	+= IST30xx/
+obj-$(CONFIG_WAKE_GESTURES)		+= wake_gestures.o
