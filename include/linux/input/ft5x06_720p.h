@@ -159,12 +159,12 @@
 * make sure the application data is valid.
 */
 #define FT_FW_CHECK(x, ts_data) \
-		(ts_data->family_id == FT6X36_ID ? \
-		(((x)->data[0x104] ^ (x)->data[0x105]) == 0xFF \
-		&& ((x)->data[0x106] ^ (x)->data[0x107]) == 0xFF) : \
-		(((x)->data[(x)->size - 8] ^ (x)->data[(x)->size - 6]) == 0xFF \
-		&& ((x)->data[(x)->size - 7] ^ (x)->data[(x)->size - 5]) == 0xFF \
-		&& ((x)->data[(x)->size - 3] ^ (x)->data[(x)->size - 4]) == 0xFF))
+	(ts_data->family_id == FT6X36_ID ? \
+	(((x)->data[0x104] ^ (x)->data[0x105]) == 0xFF \
+	&& ((x)->data[0x106] ^ (x)->data[0x107]) == 0xFF) : \
+	(((x)->data[(x)->size - 8] ^ (x)->data[(x)->size - 6]) == 0xFF \
+	&& ((x)->data[(x)->size - 7] ^ (x)->data[(x)->size - 5]) == 0xFF \
+	&& ((x)->data[(x)->size - 3] ^ (x)->data[(x)->size - 4]) == 0xFF))
 
 #define FT_MAX_TRIES        5
 #define FT_RETRY_DLY        20
@@ -321,14 +321,14 @@ struct ft5x06_ts_data {
 
 #define CTP_ERROR(fmt, arg...)          printk("FT5X06-TP-TAG ERROR:"fmt"\n", ##arg)
 
-#define CTP_DEBUG(fmt, arg...)          do  {\
-	if (CTP_DEBUG_ON)\
-		printk("FT5X06-TP-TAG DEBUG:[%d]"fmt"\n", __LINE__, ##arg);\
-} while (0)
-#define CTP_DEBUG_FUNC()               do  {\
-	if (CTP_DEBUG_FUNC_ON)\
-		printk("FT5X06-TP-TAG Func:%s@Line:%d\n", __func__, __LINE__);\
-} while (0)
+#define CTP_DEBUG(fmt, arg...)          do {\
+									     if (CTP_DEBUG_ON)\
+									     printk("FT5X06-TP-TAG DEBUG:[%d]"fmt"\n", __LINE__, ##arg);\
+									   } while (0)
+#define CTP_DEBUG_FUNC()               do {\
+									     if (CTP_DEBUG_FUNC_ON)\
+									     printk("FT5X06-TP-TAG Func:%s@Line:%d\n", __func__, __LINE__);\
+									   } while (0)
 
 
 #endif
