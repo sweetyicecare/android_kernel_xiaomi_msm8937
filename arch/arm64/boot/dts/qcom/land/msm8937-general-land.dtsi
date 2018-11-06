@@ -412,7 +412,10 @@
 };
 
 &pmi_haptic {
+	qcom,actuator-type = <1>;
 	qcom,vmax-mv = <2700>;
+	qcom,use-play-irq;
+	qcom,use-sc-irq;
 };
 
 &qpnp_smbcharger {
