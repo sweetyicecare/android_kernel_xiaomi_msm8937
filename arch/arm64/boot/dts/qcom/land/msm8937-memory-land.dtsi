@@ -20,5 +20,11 @@
 		cont_splash_mem: splash_region@83000000 {
 			reg = <0x0 0x8dd00000 0x0 0x1400000>;
 		};
+
+		pstore_reserve_mem: pstore_reserve_mem_region@0 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0x0 0x9ff00000 0x0 0x00300000>;
+		};
 	};
 };
