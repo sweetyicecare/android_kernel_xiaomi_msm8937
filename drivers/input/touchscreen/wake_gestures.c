@@ -158,7 +158,7 @@ static DECLARE_WORK(wake_presspwr_work, wake_presspwr);
 static void wake_pwrtrigger(void) {
 	pwrtrigger_time[1] = pwrtrigger_time[0];
 	pwrtrigger_time[0] = ktime_to_ms(ktime_get());
-	
+	set_vibrate(vib_strength);
 	if (pwrtrigger_time[0] - pwrtrigger_time[1] < TRIGGER_TIMEOUT)
 		return;
 
