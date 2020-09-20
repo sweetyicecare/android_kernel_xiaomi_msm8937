@@ -228,6 +228,38 @@
 				input-enable;
 			};
 		};
+
+		/delete-node/ cam_sensor_rear_reset;
+		/delete-node/ cam_sensor_rear_reset_sleep;
+		/delete-node/ cam_sensor_rear_standby;
+		/delete-node/ cam_sensor_rear_standby_sleep;
+
+		cam_sensor_rear_default: cam_sensor_rear_default {
+			mux {
+				pins = "gpio36", "gpio35";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio36","gpio35";
+				bias-disable;
+				drive-strength = <2>;
+			};
+		};
+
+		cam_sensor_rear_sleep: cam_sensor_rear_sleep {
+			mux {
+				pins = "gpio36","gpio35";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio36","gpio35";
+				bias-disable;
+				drive-strength = <2>;
+			};
+		};
+
+		/delete-node/ cam_sensor_rear_vana;
+		/delete-node/ cam_sensor_rear_vana_sleep;
 	};
 
 	gpio-leds {
@@ -383,7 +415,7 @@
 	qcom,vmax-mv = <2700>;
 };
 
-&pmi8950_charger {
+&qpnp_smbcharger {
 	qcom,qpnp-smbcharger {
 			/delete-property/qcom,float-voltage-mv;
 			qcom,thermal-mitigation = <2000 1000 800 800>;
@@ -404,9 +436,12 @@
 
 &firmware {
 	android {
+		/delete-node/ vbmeta;
 		fstab {
 			vendor {
 				dev = "/dev/block/platform/soc/7824900.sdhci/by-name/cust";
+				fsmgr_flags = "wait";
+				status = "ok";
 			};
 			system {
 				compatible = "android,system";
