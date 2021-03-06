@@ -123,3 +123,7 @@ kernel/configs/android-*.cfg
 #Ignoring Android.bp link file
 #
 Android.bp
+/build-kernel.sh
+/drivers/input/sensors/smi130/modules.order
+/out
+testing.log
